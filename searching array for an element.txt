@@ -1,0 +1,15 @@
+[5, 2, 3, 1, 10, 9, 12]
+is_in(to_find, array)
+
+[1, 2, 3, 5, 9, 10, 12]
+          ^      ^   ^
+          3      5   6
+
+Binary search, splits search into two each time
+
+exam:
+practical - loops and arrays, know for and while loops
+
+steps of sorting algo - not quicksort
+
+historical computing : transitiors, vaccum tubes, etc. (read sheet and section on book)

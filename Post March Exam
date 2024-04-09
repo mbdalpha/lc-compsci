@@ -1,0 +1,15 @@
+q1. 
+    scope of function - vars first referenced inside function are not global 
+
+q7.
+    powers off - skipped 16.2
+
+q8.
+    primary key definition:
+        The atribute chosen to uniquly identify a video
+    foreign key:
+        An atribute that refers to primary key that is somewhere else in the database
+
+q10.
+    validation check:
+        

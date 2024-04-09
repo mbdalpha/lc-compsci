@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function print(msg) {
+                let out = document.getElementById("PrintOutput");
+                out.scrollTop = out.scrollHeight;
+                out.value = out.value + msg + "\n";
+            }
+        </script>
+        <script src="classtypes.js"></script>
+    </head>
+    <body>
+        <button onclick="go()">Go</button>
+        <hr>
+
+        <h2>Log</h2>
+        <textarea id="PrintOutput" cols="40" rows="20" readonly="true"></textarea>
+    </body>
+</html>

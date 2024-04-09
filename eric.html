@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function print(msg) {
+                let out = document.getElementById("PrintOutput");
+                out.scrollTop = out.scrollHeight;
+                out.value = out.value + msg + "\n";
+            }
+        </script>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>      
+        <script src="post.js"></script>
+    </head>
+    <body>
+        <div id="login_ui">
+            <input id="name", placeholder="Name">
+        <br>
+        <br>
+            <button onclick="register()">Register</button>
+        <p>or</p>
+            <button onclick="login()">Login</button>
+        <br>
+        <p><i>Enter date</i></p>
+         <input type="date" placeholder="Enter date">
+        </div>
+        <div id="welcome_ui" style="visibility: hidden;">
+            <p>Welcome <span id="user"></span>.</p>
+            <input id="post_content", placeholder="Say something">
+            <button onclick="post()">Post</button>
+
+            <table id="posts">
+                <tr>
+                    <th>Posts</th>
+                </tr>
+            </table>
+        </div>
+
+        <hr>
+
+        <button onclick="go()">Go</button>
+        <hr>
+
+        <h2>Log</h2>
+        <textarea id="PrintOutput" cols="40" rows="20" readonly="true"></textarea>
+    </body>
+</html>
