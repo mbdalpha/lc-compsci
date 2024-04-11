@@ -12,6 +12,8 @@ python -m arcade.examples.sprite_move_angle
 import random
 import arcade
 import math
+from pyglet.math import Vec2
+
 
 SPRITE_SCALING = 0.5
 SPRITE_SCALING_COIN = 0.2
@@ -28,7 +30,16 @@ MAX_SPEED = 20.0
 ACCELERATION_RATE = 0.3
 FRICTION = 0.02
 
-BULLET_SPEED=5
+BULLET_SPEED = 5
+
+
+# How many pixels to keep as a minimum margin between the character
+# and the edge of the screen.
+VIEWPORT_MARGIN = 220
+
+# How fast the camera pans to the player. 1.0 is instant.
+CAMERA_SPEED = 0.1
+
 
 class Player(arcade.Sprite):
     """ Player class """
@@ -63,26 +74,10 @@ class Player(arcade.Sprite):
         self.angle += self.change_angle
 
         # Use math to find our change based on our speed and angle
-        self.change_x += self.speed * math.sin(angle_rad)
-        self.change_y += self.speed * math.cos(angle_rad)
-
-        if self.left < 0:
-            self.left = 0
-            self.change_x = 0  # Zero x speed
-        elif self.right > SCREEN_WIDTH - 1:
-            self.right = SCREEN_WIDTH - 1
-            self.change_x = 0
-
-        if self.bottom < 0:
-            self.bottom = 0
-            self.change_y = 0
-        elif self.top > SCREEN_HEIGHT - 1:
-            self.top = SCREEN_HEIGHT - 1
-            self.change_y = 0
+        self.change_x += self.speed * math.sin(-angle_rad)
+        self.change_y += self.speed * math.cos(-angle_rad)
 
         """ Movement and game logic """
-
-
 
 
 class MyGame(arcade.Window):
@@ -110,6 +105,11 @@ class MyGame(arcade.Window):
         # Load sounds. Sounds from kenney.nl
         self.gun_sound = arcade.load_sound(":resources:sounds/hurt5.wav")
         self.hit_sound = arcade.load_sound(":resources:sounds/hit5.wav")
+
+        # Create the cameras. One for the GUI, one for the sprites.
+        # We scroll the 'sprite world' but not the GUI.
+        self.camera_sprites = arcade.Camera(SCREEN_WIDTH, SCREEN_HEIGHT)
+        self.camera_gui = arcade.Camera(SCREEN_WIDTH, SCREEN_HEIGHT)
 
     def setup(self):
         """ Set up the game and initialize the variables. """
@@ -153,11 +153,18 @@ class MyGame(arcade.Window):
         # This command has to happen before we start drawing
         self.clear()
 
+        # Select the camera we'll use to draw all our sprites
+        self.camera_sprites.use()
+
         # Draw all the sprites.
         self.coin_list.draw()
         self.bullet_list.draw()
         self.player_list.draw()
 
+        # Select the (unscrolled) camera for our GUI
+        self.camera_gui.use()
+
+        # Draw the GUI
         arcade.draw_text(f"Score: {self.score}", 10, 20, arcade.color.WHITE, 14)
 
     def on_mouse_press(self, x, y, button, modifiers):
@@ -235,6 +242,8 @@ class MyGame(arcade.Window):
         else:
             self.player_sprite.change_y = 0
 
+        # Scroll the screen to the player
+        self.scroll_to_player()
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """
@@ -247,11 +256,9 @@ class MyGame(arcade.Window):
 
         # Rotate left/right
         if key == arcade.key.LEFT:
-            self.player_sprite.change_angle = ANGLE_SPEED
-        if key == arcade.key.RIGHT:
             self.player_sprite.change_angle = -ANGLE_SPEED
-
-
+        if key == arcade.key.RIGHT:
+            self.player_sprite.change_angle = ANGLE_SPEED
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key. """
@@ -260,6 +267,27 @@ class MyGame(arcade.Window):
             self.player_sprite.speed = 0
         elif key == arcade.key.LEFT or key == arcade.key.RIGHT:
             self.player_sprite.change_angle = 0
+
+    def scroll_to_player(self):
+        """
+        Scroll the window to the player.
+
+        if CAMERA_SPEED is 1, the camera will immediately move to the desired position.
+        Anything between 0 and 1 will have the camera move to the location with a smoother
+        pan.
+        """
+
+        position = Vec2(self.player_sprite.center_x - self.width / 2,
+                        self.player_sprite.center_y - self.height / 2)
+        self.camera_sprites.move_to(position, CAMERA_SPEED)
+
+    def on_resize(self, width, height):
+        """
+        Resize window
+        Handle the user grabbing the edge and resizing the window.
+        """
+        self.camera_sprites.resize(int(width), int(height))
+        self.camera_gui.resize(int(width), int(height))
 
 
 def main():
