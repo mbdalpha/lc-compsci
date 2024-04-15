@@ -129,18 +129,29 @@ class MyGame(arcade.Window):
         self.player_list.append(self.player_sprite)
 
         # Create the coins
-        for i in range(COIN_COUNT):
+        x = 0
+        while x < 1:
+            if x == 0:
+                coin_x_start = 120
+                coin_x_end = 500
+                coin_y_start = 0
+                coin_y_end = 300
 
-            # Create the coin instance
-            # Coin image from kenney.nl
-            coin = arcade.Sprite(":resources:images/items/coinGold.png", SPRITE_SCALING_COIN)
+                coin_count = ((coin_x_start-coin_x_end)*(coin_y_start-coin_y_end))//100
 
-            # Position the coin
-            coin.center_x = random.randrange(SCREEN_WIDTH)
-            coin.center_y = random.randrange(120, SCREEN_HEIGHT)
+            x += 1
+            for i in range(coin_count):
 
-            # Add the coin to the lists
-            self.coin_list.append(coin)
+                # Create the coin instance
+                # Coin image from kenney.nl
+                coin = arcade.Sprite(":resources:images/items/coinGold.png", SPRITE_SCALING_COIN)
+
+                # Position the coin
+                coin.center_x = random.randrange(coin_x_start, coin_x_end)
+                coin.center_y = random.randrange(coin_y_start, coin_y_end)
+
+                # Add the coin to the lists
+                self.coin_list.append(coin)
 
         # Set the background color
         arcade.set_background_color(arcade.color.AMAZON)
@@ -178,7 +189,7 @@ class MyGame(arcade.Window):
 
         # The image points to the right, and we want it to point up. So
         # rotate it.
-        bullet.angle = (self.player_sprite.angle - 90)
+        bullet.angle = (self.player_sprite.angle + 90)
 
         # Give the bullet a speed
         bullet.change_y = BULLET_SPEED
@@ -193,8 +204,8 @@ class MyGame(arcade.Window):
 
         # Taking into account the angle, calculate our change_x
         # and change_y. Velocity is how fast the bullet travels.
-        bullet.change_x = math.cos(-math.radians(bullet.angle)) * BULLET_SPEED
-        bullet.change_y = math.sin(-math.radians(bullet.angle)) * BULLET_SPEED
+        bullet.change_x = math.cos(math.radians(bullet.angle)) * BULLET_SPEED
+        bullet.change_y = math.sin(math.radians(bullet.angle)) * BULLET_SPEED
 
     def on_update(self, delta_time):
 
