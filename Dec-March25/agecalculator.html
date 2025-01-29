@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <script>
+            function submit(){
+                let name = document.getElementById("name").value;
+                let age = Number(document.getElementById("age").value);
+
+                document.getElementById("lastname").innerText = name;
+                localStorage.setItem("name", name);
+                localStorage.setItem("age", JSON.stringify(age));
+            }
+
+            function start(){
+                let name = localStorage.name;
+                let age = JSON.parse(localStorage.age)
+                document.getElementById("lastname").innerText = name;
+                document.getElementById("next").innerText = String(age + 1);
+            }
+
+        </script>
+    </head>
+    <body onload="start()">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input id="name"></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input id="age"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button onclick="submit()">Submit</button></td>
+            </tr>
+        </table>
+        <p>
+            The last person to visit this page was <span id = "lastname"></span>. Next year they will be <span id="next"></span>.
+        </p>
+    </body>
+</html>

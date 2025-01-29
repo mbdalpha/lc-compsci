@@ -1,0 +1,6 @@
+.lbl-toggle{
+  background: #e0e0e0; 
+}
+.content-inner { background: rgba(161, 161, 161, 0.2);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  }

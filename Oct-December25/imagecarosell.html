@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .thumbnail{
+            width: 45px;
+            height: 45px;
+            background-color: none;
+            outline: none;
+            border: none;
+            }
+        .thumbnail:hover{
+            width: 45px;
+            height: 45px;
+            background-color: none;
+            outline: none;
+            border: none;
+        }
+    </style>
+    <script>
+        var url = [
+            "https://upload.wikimedia.org/wikipedia/en/7/74/U_of_Tokyo_student_protests.png", 
+            "https://upload.wikimedia.org/wikipedia/commons/b/b6/Tokuda_Nosaka_Shiga.JPG", 
+            "https://upload.wikimedia.org/wikipedia/commons/5/50/Zengakuren_9th_Convention.jpg", 
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Yasuda_Auditorium.jpg/800px-Yasuda_Auditorium.jpg", 
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Zenkyoto.jpg/800px-Zenkyoto.jpg", 
+            "https://upload.wikimedia.org/wikipedia/commons/9/9f/Yoshimoto_Takaaki.jpg"]
+
+        var imgindex = 0
+        function left(){
+            imgindex = imgindex - 1
+            if(imgindex < 0){
+                imgindex = url.length - 1
+            }
+            document.getElementById("main").src = url[imgindex]
+        }
+        function right(){
+            imgindex = imgindex + 1
+            if(imgindex > url.length - 1){
+                imgindex = 0
+            }
+            document.getElementById("main").src = url[imgindex]
+        }
+        function thumbnail(num){
+            imgindex = num
+            document.getElementById("main").src = url[imgindex]
+        }
+    </script>
+</head>
+<body>
+    <img id="main" src = "https://upload.wikimedia.org/wikipedia/en/7/74/U_of_Tokyo_student_protests.png"
+    height="300px" width="300px" >
+    <table>
+        <tr>
+            <td>
+                <button id="left" onclick="left()"><-</button>
+            </td>
+            <td style="width: 235px;">
+            </td>
+            <td>
+                <button id="right" onclick="right()">-></button>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <button class="thumbnail" onclick="thumbnail(0)"><img class="thumbnail" src ="https://upload.wikimedia.org/wikipedia/en/7/74/U_of_Tokyo_student_protests.png"></button>
+                <button class="thumbnail" onclick="thumbnail(1)"><img class="thumbnail" src ="https://upload.wikimedia.org/wikipedia/commons/b/b6/Tokuda_Nosaka_Shiga.JPG"></button>
+                <button class="thumbnail" onclick="thumbnail(2)"><img class="thumbnail" src ="https://upload.wikimedia.org/wikipedia/commons/5/50/Zengakuren_9th_Convention.jpg"></button>
+                <button class="thumbnail" onclick="thumbnail(3)"><img class="thumbnail" src ="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Yasuda_Auditorium.jpg/800px-Yasuda_Auditorium.jpg"></button>
+                <button class="thumbnail" onclick="thumbnail(4)"><img class="thumbnail" src ="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Zenkyoto.jpg/800px-Zenkyoto.jpg"></button>
+                <button class="thumbnail" onclick="thumbnail(5)"><img class="thumbnail" src ="https://upload.wikimedia.org/wikipedia/commons/9/9f/Yoshimoto_Takaaki.jpg"></button>
+            </td>
+        </tr>
+    </table>
+</body>

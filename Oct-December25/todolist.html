@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            var current_id = 0;
+
+            function add_task() {
+            var todo_text = document.getElementById("task_input").value;
+            var list_item = document.createElement("li");
+            list_item.id = current_id;
+            list_item.innerHTML = todo_text + " <button onclick='remove(" +
+            list_item.id +
+             ")'>X</button>";
+
+            var todo_list = document.getElementById("todo-list");
+            todo_list.appendChild(list_item);
+            current_id = current_id + 1
+            }
+            function remove(id ) {
+                var todo_list = document.getElementById("todo-list");
+                var todo_item = document.getElementById(id);
+                todo_list.removeChild(todo_item);
+            }
+        </script>
+    </head>
+    <body>
+        <input id="task_input"><button onclick="add_task()">Add</button>
+        <ul id="todo-list">
+        </ul>
+    </body>
+</html>

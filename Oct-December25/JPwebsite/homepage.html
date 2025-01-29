@@ -1,0 +1,181 @@
+
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
+        <script src="https://kit.fontawesome.com/0e0958054e.js" crossorigin="anonymous"></script>
+        <link id="pagestyle" href="dark.css" rel="stylesheet" type="text/css"/>
+        <title>リービングサート日本語!</title>
+        <style>
+          h1, h2, h3, h4, h5 {
+            padding-left: 30px;
+            padding-right: 30px;
+          }
+          p {
+            padding-left: 10px;
+            padding-right: 10px;
+          }
+
+         .pure-g > div {
+           box-sizing: border-box;
+          }
+         .l-box {
+           padding: 5px;
+          }
+        </style>
+        <script>
+          var theme=0
+          function swapStyle(){
+              if(theme == 0){
+                  document.getElementById("pagestyle").setAttribute("href", "light.css")
+                  document.getElementById("themebutton").setAttribute("class", "fa-solid fa-moon")
+                  theme += 1
+              }
+              else{
+                  document.getElementById("pagestyle").setAttribute("href", "dark.css")
+                  document.getElementById("themebutton").setAttribute("class", "fa-solid fa-sun")  
+                  theme -= 1
+              }
+          }
+        </script>
+    </head>
+    <style>
+
+input[type='checkbox'] { display: none; } 
+.wrap-collabsible { margin: 1.2rem 0; } 
+.lbl-toggle { display: block; 
+  font-weight: bold;
+  font-size: 1rem; 
+  text-align: center; padding: 1rem; 
+  cursor: pointer; 
+  border-radius: 7px; 
+  transition: all 0.25s ease-out; } 
+  .lbl-toggle:hover { color: #6b6b6b; } 
+  .lbl-toggle::before { content: ' '; 
+   display: inline-block; 
+   border-top: 5px solid transparent;
+   border-bottom: 5px solid transparent; 
+   border-left: 5px solid currentColor; 
+   vertical-align: middle; 
+   margin-right: .7rem; 
+   transform: translateY(-2px); 
+   transition: transform .2s ease-out; } 
+   .toggle:checked+.lbl-toggle::before { transform: rotate(90deg) translateX(-3px); } 
+   .collapsible-content { max-height: 0px; overflow: hidden; 
+    transition: max-height .25s ease-in-out; } 
+  .toggle:checked + .lbl-toggle + .collapsible-content { max-height: 350px; } 
+  .toggle:checked+.lbl-toggle { border-bottom-right-radius: 0; border-bottom-left-radius: 0; } 
+  .collapsible-content 
+  .content-inner {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: .5rem 1rem; } 
+  .collapsible-content p { margin-bottom: 0; }
+
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="pure-menu pure-menu-horizontal">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item">
+                    <a href="homepage.html" class="pure-menu-link">Home</a>
+                </li>
+                <li class="pure-menu-item">
+                  <a class="pure-menu-link" href="getstarted.html">Get Started</a>
+                </li>
+                <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover pure-menu-selected">
+                    <a href="#" id="resources.html" class="pure-menu-link">Resources</a>
+                    <ul class="pure-menu-children">
+                        <li class="pure-menu-item">
+                            <a href="resources.html#kana" class="pure-menu-link">Kana</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="resources.html#vocab" class="pure-menu-link">Vocab</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="resources.html#grammar" class="pure-menu-link">Grammar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="pure-menu-item">
+                  <a class="pure-menu-link" href="immersion.html">Immersion</a>
+                </li>
+                <li class="pure-menu-item">
+                  <button onclick="swapStyle()" style="font-size: 1.4em; background: none ; border: none;">
+                    <i id="themebutton" class="fa-solid fa-sun"></i>
+                </button>
+                </li>
+            </ul>
+          </div>
+      </nav>
+
+      <h1>リービングサート日本語!</h1>
+      <p><strong>A lineup of resources applicable to Leaving Cert Japanese</strong></p>
+    </header>
+
+    <p>Japanese in the Leaving Certificate is a not often taken yet quite approachable language, especially as it expects zero knowledge going into 5th year and thus is assessed to a lower level than other languages such as French, Spanish, and German</p>
+
+    <h2>See below to get started! ↓↓↓↓↓↓↓↓</h2>
+
+    <div class="pure-g">
+  
+      <div class="pure-u-1 pure-u-md-1-3">
+        <div class="wrap-collabsible">
+          <input id="collapsible" class="toggle" type="checkbox">
+          <label for="collapsible" class="lbl-toggle">Hi, I just heard about this and it's pretty neat, where do I get started?
+          </label>
+          <div class="collapsible-content">
+            <div class="content-inner">
+              <p>
+                Welcome! I'm glad you are here, I would recommend to check out the <a href="getstarted.html">"Getting Started"</a> webpage, it has resources for both those planning to self-study and those planning to enroll in classes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+          <div class="pure-u-1 pure-u-md-1-3">
+            <div class="wrap-collabsible">
+              <input id="collapsible2" class="toggle" type="checkbox">
+              <label for="collapsible2" class="lbl-toggle">I'm currently learning the language, show me the resources
+              </label>
+              <div class="collapsible-content">
+                <div class="content-inner">
+                  <p>
+                    Sure can do, just click <a href="resources.html">here</a> and I'll take you right there!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="pure-u-1 pure-u-md-1-3">
+          <div class="wrap-collabsible">
+            <input id="collapsible3" class="toggle" type="checkbox">
+            <label for="collapsible3" class="lbl-toggle">I'd like to immerse more in the language, got anything for that?</label>
+            <div class="collapsible-content">
+              <div class="content-inner">
+                <p>
+                  Yup, got a good bit of content <a href="immersion.html">here</a> if you are looking for that!
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+
+    </div>
+
+    <footer>
+      This is a work in progress ahaha more will be added in time even if it is very barebones at the moment - Currently focusing on : Resources Page
+    </footer>
+  </body>
+</html>
+    

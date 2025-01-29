@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 90vh;
+                text-align: center;
+                font-size: large;
+            }
+
+            h1, h2{
+                margin-top: 0px;
+                margin-bottom: 5px;
+            }
+            h2{
+                margin-bottom: -15px;
+            }
+
+            button{
+                border-color: gray;
+                border-radius: 5px;
+                border-width: 1px;
+                font-size: larger;
+                width: 8em;
+                margin: 3px;
+            }
+
+            #yea{
+                background: palegoldenrod;
+                padding: 10px;
+                border-radius: 20px;
+            }
+            #inner{
+                background-color: antiquewhite;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            input{
+                width: 80%;
+                height: 1.5em;
+                text-align: center;
+                font-size: large;
+                background-color: azure;
+                border-radius: 10px;
+                border-width: 1px;
+                border-color: lightgrey;
+                border-style: solid;
+            }
+
+            #tc{
+                height: 1em;
+                width: 30%;
+            }
+
+            #ten{
+                background-color: lightblue;
+            }
+            #twenty{
+                background-color: lightcoral;
+            }
+            #thirty{
+                background-color: lightpink;
+            }
+            #custom{
+                background-color: lightgreen;
+            }
+
+        </style>
+
+
+        <script>
+            function tip(percent){
+                var i = Number(document.getElementById("main").value);
+                document.getElementById("main").value = i*(1+(percent/100));
+            }
+            
+            function tipCustom(){
+                var i = Number(document.getElementById("tc").value);
+                tip(i);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="yea">
+            <h1>Tip Calculator!</h1>
+            <div id="inner">
+                <h2>Enter Tip Amount:</h2>
+                <br>
+                <input id="main">
+                <br>
+                <br>
+                <button id="ten" onclick="tip(10)">10%</button>
+                <button id="twenty" onclick="tip(20)">20%</button>
+                <br>
+                <button id="thirty" onclick="tip(30)">30%</button>
+                <button id="custom" onclick="tipCustom()">Type in: <input id="tc"></button>
+            </div>
+        </div>
+    </body>
+    </html>
+
+

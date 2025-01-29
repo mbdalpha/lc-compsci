@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            td {
+                width: 40px;
+                height: 40px;
+            }
+            input {
+                width: 168px;
+                height: 30px;
+
+            }
+            button {
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+        <script>
+            var memory = 0;
+            var maths_op = null;
+            var clearscrn = 0;
+
+            function add_to_display(value){
+                dis = document.getElementById("display")
+                if (clearscrn>0){
+                    dis.value = value;
+                    clearscrn = 0
+                }
+                else {
+                    dis.value = dis.value + value;
+                };
+
+            }
+
+            function op_selected(op) {
+                dis = document.getElementById("display")
+
+                memory = Number(dis.value);
+                maths_op = op;
+                dis.value = "";
+            }
+
+            function add(x, y) {
+                return x + y;
+            }
+
+            function sub(x, y) {
+                return x - y
+            }
+            
+            function equals() {
+                dis = document.getElementById("display");
+                dis.value = maths_op(memory, Number(dis.value));
+                clearscrn = 1;
+            }
+
+            function cancel(){
+                dis.value = "";
+            }
+
+            function cancelEverything(){
+                var memory = 0;
+                var maths_op = null;
+                var clearscrn = 0; 
+                dis.value = "";
+            }
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td colspan="4"><input id="display"></td>
+            </tr>
+            <tr>
+                <td><button onclick="cancelEverything()">CE</button></td>
+                <td><button onclick="cancel()">C</button></td>
+                <td><button onclick="op_selected(function (x, y) {return x/y; })">/</button></td>
+                <td><button onclick="op_selected(function (x, y) {return x*y; })">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="add_to_display('7')">7</button></td>
+                <td><button onclick="add_to_display('8')">8</button></td>
+                <td><button onclick="add_to_display('9')">9</button></td>
+                <td><button onclick="op_selected(add)">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="add_to_display('4')">4</button></td>
+                <td><button onclick="add_to_display('5')">5</button></td>
+                <td><button onclick="add_to_display('6')">6</button></td>
+                <td><button onclick="op_selected(sub)">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="add_to_display('1')">1</button></td>
+                <td><button onclick="add_to_display('2')">2</button></td>
+                <td><button onclick="add_to_display('3')">3</button></td>
+                <td rowspan="2" class="span-row" onclick="equals()"><button>=</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="add_to_display('0')">0</button></td>
+                <td><button onclick="add_to_display('.')">.</button></td>
+            </tr>
+
+        </table>
+    </body>
+</html>

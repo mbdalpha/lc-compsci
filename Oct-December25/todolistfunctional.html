@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            var current_id = 0;
+
+            function add_task() {
+                var todo_text =
+                    document.getElementById("task_input").value;
+                var list_item = document.createElement("li");
+                var btn = document.createElement("button")
+                list_item.innerHTML = todo_text
+               
+                btn.innerHTML = "X";
+                btn.addEventListener("click", function(){
+                    var todo_list = document.getElementById("todo-list");
+                    todo_list.removeChild(list_item);
+                })
+
+                list_item.appendChild(btn);
+
+                var todo_list = document.getElementById("todo-list");
+                todo_list.appendChild(list_item);
+
+                current_id = current_id + 1;
+            }
+
+
+        </script>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 90vh;
+            }
+            #name{
+                color: blue
+            }
+            #div{
+                box-shadow: 0 0 20px blue;
+                padding: 1px 1px 10px 10px
+            }
+
+            button{
+                color: black;
+                background-color: orangered;
+                border-radius: 5px;
+                margin: 3px;
+            }
+
+            .addbtn{
+                color: red;
+                background-color: whitesmoke;
+                border-radius: 20px;
+            }
+            ul{
+                list-style: none;
+                padding-left: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <p>This is a <span id="name">to-do</span> notes app.</p>
+            <input id="task_input">
+            <button onclick="add_task()" class="addbtn">Add</button>
+            <ul id="todo-list">
+            </ul>
+        </div>
+    </body>
+</html>
+
+

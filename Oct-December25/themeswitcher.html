@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
+    <title>Switch your theme!</title>
+    <link id="pagestyle" href="dark.css" rel="stylesheet" type="text/css"/>
+    <script src="https://kit.fontawesome.com/0e0958054e.js" crossorigin="anonymous"></script>
+    <style>
+        .fa-sun{
+  color: #e8e6e3
+}
+    button{
+        background:none
+        ;
+        border: none;
+    }
+    </style>
+    <script>
+        var theme=0
+        function swapStyle(){
+            if(theme == 0){
+                document.getElementById("pagestyle").setAttribute("href", "light.css")
+                document.getElementById("themebutton").setAttribute("class", "fa-solid fa-moon")
+                theme += 1
+            }
+            else{
+                document.getElementById("pagestyle").setAttribute("href", "dark.css")
+                document.getElementById("themebutton").setAttribute("class", "fa-solid fa-sun")
+
+                theme -= 1
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <p><button onclick="swapStyle()" style="font-size: 3em;">
+        <i id="themebutton" class="fa-solid fa-sun"></i>
+    </button></p>
+
+</body>
