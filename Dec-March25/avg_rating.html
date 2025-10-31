@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+              function show_summary() {
+
+                if(!localStorage.getItem("ratings")){
+                    localStorage.setItem("ratings", '[]');
+                }
+
+                let ratings = JSON.parse(localStorage.ratings);
+
+                let count = 0;
+                for (let submission in ratings){
+                    count = count + ratings[submission].rating;
+                }
+
+                console.log(ratings.length);
+
+                count = count / ratings.length;
+
+
+                console.log(ratings);
+                console.log(String(ratings.length));
+
+                document.getElementById("average").innerText = count;
+                document.getElementById("total").innerText = ratings.length;
+            }
+            function submit() {
+
+
+                let submission = {
+                    name : document.getElementById("name").value,
+                    rating : Number(document.getElementById("rating").value)
+                }
+                
+                console.log(submission.name);
+                console.log(submission.rating);
+
+                let ratings = JSON.parse(localStorage.ratings);
+                ratings.push(submission);
+                localStorage.setItem("ratings", JSON.stringify(ratings));
+
+                show_summary();
+            }
+        </script>
+    </head>
+    <body onload = "show_summary()">
+        <fieldset>
+            <legend>Rate our site!</legend>
+            <label>Name</label>
+            <input id="name">
+            <br>
+            <label>Rating</label>
+            <input id="rating" type="range" min="1" max="10" value="9">
+            <br>
+            <button onclick="submit()">Submit</button>
+        </fieldset>
+        <p>
+            The average rating is <span id="average"></span> out of <span id="total"></span> ratings
+        </p>
+    </body>
+</html>
