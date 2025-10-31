@@ -1,146 +1,36 @@
 <!doctype html>
 <html>
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
-        <script src="https://kit.fontawesome.com/0e0958054e.js" crossorigin="anonymous"></script>
-        <link id="pagestyle" href="dark.css" rel="stylesheet" type="text/css"/>
-        <title>リービングサート日本語!</title>
-        <style>
-          h1, h2, h3, h4, h5 {
-            padding-left: 30px;
-            padding-right: 30px;
-          }
-          p {
-            padding-left: 10px;
-            padding-right: 10px;
-          }
-
-         .pure-g > div {
-           box-sizing: border-box;
-          }
-         .l-box {
-           padding: 5px;
-          }
-        </style>
-        <script>
-          var theme=0
-          function swapStyle(){
-              if(theme == 0){
-                  document.getElementById("pagestyle").setAttribute("href", "light.css")
-                  document.getElementById("themebutton").setAttribute("class", "fa-solid fa-moon")
-                  theme += 1
-              }
-              else{
-                  document.getElementById("pagestyle").setAttribute("href", "dark.css")
-                  document.getElementById("themebutton").setAttribute("class", "fa-solid fa-sun")  
-                  theme -= 1
-              }
-          }
-        </script>
-    </head>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/0e0958054e.js" crossorigin="anonymous"></script>
+    <script src="darkmode.js"></script>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+    <link id="pagestyle" href="dark.css" rel="stylesheet" type="text/css"/>
+    <title>リービングサート日本語!</title>
+  </head>
 
 <body>
-    <header>
-      <nav>
-        <div class="pure-menu pure-menu-horizontal">
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item">
-                    <a href="homepage.html" class="pure-menu-link">Home</a>
-                </li>
-                <li class="pure-menu-item">
-                  <a class="pure-menu-link" href="getstarted.html">Get Started</a>
-                </li>
-                <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover pure-menu-selected">
-                    <a href="#" id="resources.html" class="pure-menu-link">Resources</a>
-                    <ul class="pure-menu-children">
-                        <li class="pure-menu-item">
-                            <a href="resources.html#kana" class="pure-menu-link">Kana</a>
-                        </li>
-                        <li class="pure-menu-item">
-                            <a href="resources.html#vocab" class="pure-menu-link">Vocab</a>
-                        </li>
-                        <li class="pure-menu-item">
-                            <a href="resources.html#grammar" class="pure-menu-link">Grammar</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="pure-menu-item">
-                  <a class="pure-menu-link" href="immersion.html">Immersion</a>
-                </li>
-                <li class="pure-menu-item">
-                  <button onclick="swapStyle()" style="font-size: 1.4em; background: none ; border: none;">
-                    <i id="themebutton" class="fa-solid fa-sun"></i>
-                </button>
-                </li>
-            </ul>
-          </div>
-      </nav>
-
-      <h1>リービングサート日本語!</h1>
-      <p><strong>A lineup of resources applicable to Leaving Cert Japanese</strong></p>
-    </header>
-
-    <h2 id="kana">Kana</h2>
+  <header-component></header-component>
+  <main>
+    <h1>Resources I personally found helpful</h1>
     <p>
-      Kana is basic phonetic "alphabet" in the Japanese language. 
-      Hiragana exists for Japanese words while katakana exists for loan words 
-      - words taken from other languages, in the same vein as pizza or piano being taken from Italian into English.
-    <p>There is 46 basic characters for both systems, as well as a number of dakuten (two small lines like a quotation mark towards the top right of the character) 
-      and han-dakuten (a small circle towards the top right) that effect the pronounciation. There is also combinations formed generally of the -い form plus a small や, ゆ, or よ. 
+      <ul>
+        <li><a href='https://learnjapanese.moe/guide/'>TMW's amazing guide/site but focuses quite hard on reading and little on outputting.</a></li>
+        <li><a href='https://gohoneko.neocities.org/learn/kana'>Decent webapp for drilling kana.</a></li>
+        <li><a href='https://baileysnyder.com/jconj/'>Decent webapp for drilling grammar forms.</a></li>
+        <li><a href='https://ankiweb.net/shared/info/1196762551'>Best core vocab deck.</a></li>
+        <li><a href='https://yomitan.wiki/'>Insanely useful tool for in browser lookups and Anki mining.</a></li>
+        <li><a href='https://kitsunekko.net/dirlist.php?dir=subtitles%2Fjapanese%2F'>Site with subtitle files for most anime.</a></li>
+        <li><a href='https://nyaa.si/'>Anime torrenting site with basically you could ever want</a> (use a <a href='https://mullvad.net/'>VPN</a> if your ISP is Eir or Starlink, and I recommend <a href='https://www.qbittorrent.org/'>qBittorrent</a> as your torrenting client)</li>
+        <li>If choosing to go with downloaded anime for immersion, I would recommend setting up <a href='https://yomitan.wiki/'>Yomitan</a> with <a href='https://chromewebstore.google.com/detail/asbplayer-language-learni/hkledmpjpaehamkiehglnbelcpdflcab'>asbplayer</a></li>
+        <li>My personal favorite Japanese podcaster, both suitable for <a href="https://youtube.com/playlist?list=PLbsmSVzhiwvA8VNMAW_cuDqujRQULBjFd">beginners</a> and more <a href="https://youtube.com/playlist?list=PLbsmSVzhiwvBLfTzvg6W_DTZ8IFUFm3jL">intermediate</a> listeners</li>
+        <li><a href='https://morwennasensei.notion.site/Japanese-LC-Revision-fe3758f6408d4f1b859348c3cb9b80e6'>Another LC JP site</a>, focusing more on specific vocab that has come up before rather than learning methodology.</li>
+      </ul>
     </p>
-    <p>Learning these is cruicial, as this guide as well as most you find online will expect you to know at least these. 
-      I would recommend to look at the table below, <a href="http://japanese-lesson.com/characters/hiragana/hiragana_writing.html">practice</a> <a href="http://japanese-lesson.com/characters/katakana/katakana_writing.html">writing</a> them a number of times to get a grasp on stroke order 
-      (as you will be expected to write them during the LC exam, it is not like the JPLT), 
-      and then either using an <a href="https://ankiweb.net/shared/info/576084877">anki deck</a> 
-      or just grinding them out using <a href="https://kana.pro/">this little browser game.</a> 
-    </p>
-      <br> <img src="https://upload.wikimedia.org/wikipedia/en/b/b5/Chart_of_kana.png" height="300px" style="display: block; margin-left: auto; margin-right: auto;">
-
-    <p>You will be exposed to these continiously throughout learning Japanese and as such I would not worry too much about being 100% accurate yet or 
-    worrying about revising these unless they become a problem for you.
-    </p>
-    <h3>But wait, what about that kanji stuff everybody talks about???</h3>
-    <p>Ah yes the dreaded kanji. These are logographic characters used to represent either words or parts of words.
-       There is <strong>A LOT</strong> of them in the language but even among native adults only about 3000-4000 would be known.
-       They are a major part of the language and incredibly important for consuming Japanese media.
-    </p>
-    <p><strong>HOWEVER</strong> as a Leaving Cert Japanese student you are only expected to know a handful.
-       I personally would recommend to learn to recognise more in order to allow you to immerse more and make reading nicer,
-       but anything beyond <a href="https://ppli.ie/wp-content/uploads/2019/07/11-Kanji-List.docx">this list</a>
-       you are not expected to know how to reproduce, and read and recognise without furigana.
-    </p>
-    <p>Continue reading if you want to learn more about learning kanji and general vocabulary.
-    </p>
-
-    <h2 id="vocab">Vocab</h2>
-    <p>While <strong>TECHNICALLY</strong> you are expected to know all of the words at the end of each chapter in Nihongo Kantan.
-      for the exam in reality you are not really expected to know every single one of these -- <strong>some vocab will be much more important for you than others.</strong>
-      This is important as a number of words on the course are quite obscure even by the standard of the topic they belong to.
-    </p>
-    <p>
-      You will be in an awkward position when you start learning Japanese, as you will have to get over the metaphorical "hump" of vocabulary and grammar before you
-      are in a position to understand proper reading content. I would recommend either grinding out the first few chapters of the textbook (or if you feel that does not work for you
-      starting to tackle the first few hundred vocab in a core 2k deck - granted I personally found that these could burn me out quite easily when I was dipping my toes in the language).    
-    </p>
-    <p>
-      I would also begin to learn basic grammar alongside this basic vocab - its your choice if you want to do most of the grammar on the course in one big push or in smaller sections
-      more mirroring the method the textbook uses. See the next section for a bit more on that
-    </p>
-    <p>
-      Anyways, back to the topic of vocabulary. Personally I found what is known as "mining" to be most effective for my vocab learning. Generally in the wider Japanese learning
-      community this will be used to just refer to using a program such as Yomitan to quickly lookup and add unknown words to an anki deck while reading texts or consuming other immersion material.
-      I like to expand this to the textbook and the exam papers - as while the vocabulary lists at the end of each chapter in Nihongo Kantan a number of them are not really used all that much and it it nicer to experience
-      reading them in sentences and to allow you to have context with your flashcards. Try and add all the vocab to your deck as you come across them - it will be harder to go back and add them later, and the exercise
-      you did where you found it will act as the "learning" state on which Anki flashcards only aim to keep recent. 
-    </p>
-    <p>
-      Once you are at least relatively confident with reading basic sentences in Japanese I would
-    </p>
-    <p>
-      I can't decide for you what <strong>YOU</strong> personally feel as useful, but I would recommend to look at the topic cards and pictures for the oral
-      and look through a number of exam papers and you can kind of get an idea - the majority of it is either simple everyday language or school related language.
-    </p>
-    <h2 id="grammar">Grammar</h2>
-
+  </main>
+  </body>
+  <footer-component></footer-component>
